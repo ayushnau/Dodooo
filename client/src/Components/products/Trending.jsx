@@ -1,5 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import "./Trending.css"
+import product6 from "../static/product6.jpg";
+import product7 from "../static/product7.jpg";
+import product8 from "../static/product8.jpg";
 
 export const CarouselItem = ({ children, width }) => {
   return (
@@ -7,15 +10,14 @@ export const CarouselItem = ({ children, width }) => {
       {children}
     </div>
   );
-
 };
 
 const Carousel = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {  
-        updateIndex(activeIndex + 1);
+    const interval = setInterval(() => {
+      updateIndex(activeIndex + 1);
     }, 3000);
 
     return () => {
@@ -28,32 +30,42 @@ const Carousel = ({ children }) => {
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
       newIndex = React.Children.count(children) - 1;
-    }
-    else if (newIndex >= React.Children.count(children)) {
+    } else if (newIndex >= React.Children.count(children)) {
       newIndex = 0;
-    };
+    }
 
     setActiveIndex(newIndex);
   };
   return (
     <div className="carousel">
-      <div className="inner" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-        {
-          React.Children.map(children, (child, index) => {
-            return React.cloneElement(child, { width: "100%" });
-          })
-        }
+      <div
+        className="inner"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, { width: "100%" });
+        })}
       </div>
 
       <div className="indicators">
-        <button className='carousel__btn carousel__btn--prev' onClick={() => {
-          updateIndex(activeIndex - 1);
-        }}> <span><i className="fas fa-chevron-circle-left fa-2x"></i></span>  </button>
+        <button
+          className="carousel__btn carousel__btn--prev"
+          onClick={() => {
+            updateIndex(activeIndex - 1);
+          }}
+        >
+          {" "}
+          <span>
+            <i className="fas fa-chevron-circle-left fa-2x"></i>
+          </span>{" "}
+        </button>
 
         {React.Children.map(children, (child, index) => {
           return (
             <button
-              className={`${index === activeIndex ? "active" : ""} carousel__nav`}
+              className={`${
+                index === activeIndex ? "active" : ""
+              } carousel__nav`}
               onClick={() => {
                 updateIndex(index);
               }}
@@ -63,11 +75,17 @@ const Carousel = ({ children }) => {
           );
         })}
 
-        <button className='carousel__btn carousel__btn--next' onClick={() => {
-          updateIndex(activeIndex + 1);
-        }}> <span><i className="fas fa-chevron-circle-right fa-2x"></i></span>  </button>
-
-
+        <button
+          className="carousel__btn carousel__btn--next"
+          onClick={() => {
+            updateIndex(activeIndex + 1);
+          }}
+        >
+          {" "}
+          <span>
+            <i className="fas fa-chevron-circle-right fa-2x"></i>
+          </span>{" "}
+        </button>
       </div>
     </div>
   );
@@ -76,12 +94,18 @@ const Carousel = ({ children }) => {
 const CarouselSetup = () => {
   return (
     <Carousel>
-      <CarouselItem><img src="https://picsum.photos/700/500" alt="" /></CarouselItem>
-      <CarouselItem><img src="https://picsum.photos/700/500" alt="" /></CarouselItem>
-      <CarouselItem><img src="https://picsum.photos/700/500" alt="" /></CarouselItem>
+      <CarouselItem>
+        <img src={product6} alt="" />
+      </CarouselItem>
+      <CarouselItem>
+        <img src={product7} alt="" />
+      </CarouselItem>
+      <CarouselItem>
+        <img src={product8} alt="" />
+      </CarouselItem>
     </Carousel>
-  )
-}
+  );
+};
 
 const TrendingCarousel = () =>{
   return (

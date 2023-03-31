@@ -1,19 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.d5d8cc3c.css",
-    "main.js": "/static/js/main.89d0b558.js",
+    "main.css": "/static/css/main.dd5f9463.css",
+    "main.js": "/static/js/main.db9c7319.js",
+    "static/media/product4.jpg": "/static/media/product4.23765ef782f8aca58bad.jpg",
+    "static/media/product8.jpg": "/static/media/product8.640a192e5a79e7d91034.jpg",
+    "static/media/product5.jpg": "/static/media/product5.bc935c96d1da2a9e9da4.jpg",
+    "static/media/product2.jpg": "/static/media/product2.ca3cc63b4c23ced378dd.jpg",
+    "static/media/product1.jpg": "/static/media/product1.f72dc6521dd83538737a.jpg",
+    "static/media/product3.jpg": "/static/media/product3.26433e976d8343227d7a.jpg",
     "static/media/model.png": "/static/media/model.5dc1969c70ea4c19b3a3.png",
+    "static/media/product7.jpg": "/static/media/product7.b7dc7a4d87fefff8856e.jpg",
+    "static/media/product6.jpg": "/static/media/product6.d0736c428210168f6570.jpg",
     "static/media/FruitsAndVegetable.png": "/static/media/FruitsAndVegetable.e1d87bf683a3dba78deb.png",
     "static/media/PickupAndDrop.png": "/static/media/PickupAndDrop.188dd4ed430738b6f187.png",
     "static/media/groceriesAndEssential.png": "/static/media/groceriesAndEssential.640e66a39bbff2692ca6.png",
     "static/media/Restuarants.jpg": "/static/media/Restuarants.bb4ce986d44e1acc3755.jpg",
     "static/media/logo.png": "/static/media/logo.4cefd41874948aa9722a.png",
     "index.html": "/index.html",
-    "main.d5d8cc3c.css.map": "/static/css/main.d5d8cc3c.css.map",
-    "main.89d0b558.js.map": "/static/js/main.89d0b558.js.map"
+    "main.dd5f9463.css.map": "/static/css/main.dd5f9463.css.map",
+    "main.db9c7319.js.map": "/static/js/main.db9c7319.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5d8cc3c.css",
-    "static/js/main.89d0b558.js"
+    "static/css/main.dd5f9463.css",
+    "static/js/main.db9c7319.js"
   ]
 }

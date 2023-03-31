@@ -1,37 +1,38 @@
 import React , {useState} from 'react'
 import './Signupform.css'
 import { useNavigate } from 'react-router-dom';
+import Button from "../Button";
+import { BASE_URI } from "../../services/helper";
 
 const Signupform = () => {
-const navigate = useNavigate();
-    const [user, setUser] = useState({name:"",email:"",password:""});
-    const HandleChange = (e)=>{
-        console.log(e);
-        const {name,value} =e.target;
-        console.log(name,value);
-        setUser({...user,[name]:value});
+  const navigate = useNavigate();
+  const [user, setUser] = useState({ name: "", email: "", password: "" });
+  const handleChange = (e) => {
+    console.log(e);
+    const { name, value } = e.target;
+    console.log(name, value);
+    setUser({ ...user, [name]: value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch(`${BASE_URI}/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: user.name,
+        email: user.email,
+        password: user.password,
+      }),
+    });
+    const data = await res.json();
+    console.log(data);
+    if (data.status === 200) {
+      navigate("/login");
     }
-       const handleSubmit = async(e)=>{
-		   e.preventDefault();
-		   const res = await fetch("http://localhost:4000/signup", {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({
-           name: user.name,
-           email: user.email,
-           password: user.password,
-         }),
-       });
-		   const data  = await res.json();
-		   console.log(data);
-		   if(data.status === 200)
-		   {
-			   navigate('/login');
-		   }
-	   }
+  };
   return (
-
-<div className="container">
+    <>
+      {/* <div className="container">
 	<div className="screen">
 		<div className="screen__content">
 			<form className="login" onSubmit={handleSubmit}>
@@ -70,9 +71,51 @@ const navigate = useNavigate();
 			<span className="screen__background__shape screen__background__shape1"></span>
 		</div>		
 	</div>
-</div>
-    
-  )
-}
+</div> */}
+
+      <div className="Mastercontainer">
+        <div className="upContainer">
+          <form onSubmit={handleSubmit}>
+            <h2>Signup</h2>
+            <input
+              id="name"
+              type="name"
+              className="input"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              placeholder="username"
+            />
+            <br />
+            <input
+              id="email"
+              type="email"
+              className="input"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              placeholder="Email"
+            />
+            <br />
+            <input
+              id="password"
+              type="password"
+              className="input"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+            <input type="checkbox" id="checkbox" />
+            <span>Remember password</span>
+
+            <Button type="submit">Submit</Button>
+            <a href="/login">Already a Member</a>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Signupform

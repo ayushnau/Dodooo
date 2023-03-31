@@ -54,7 +54,9 @@ const Navbar = () => {
 
   return (
     <div className="navbarmaster">
-      <img className="imagelogo" src={logo} alt="logo" />
+      <a href="/">
+        <img className="imagelogo" src={logo} alt="logo" />
+      </a>
       <ul id="list" className="list">
         <li className="listname placeSearch">
           <i className="fas fa-map-marker-alt"></i>
@@ -67,15 +69,23 @@ const Navbar = () => {
           <div>search</div>
         </li>
         <li className="listname logoutmaster g-signin">
-          <a href="/login">
+          <a href="/signup">
             <button className="Signinbtn">
-              {name ? name : "login"}{" "}
-              <i className="fa fa-caret-down" aria-hidden="true"></i>
+              {name ? name : "signup"}
+              {localStorage.getItem("token") ? (
+                <i className="fa fa-caret-down" aria-hidden="true"></i>
+              ) : (
+                <></>
+              )}
             </button>
           </a>
-          <div className="logout" onClick={handlelogout}>
-            logout
-          </div>
+          {localStorage.getItem("token") ? (
+            <div className="logout" onClick={handlelogout}>
+              logout
+            </div>
+          ) : (
+            <></>
+          )}
         </li>
         <li className="listname">
           <i className="fas fa-shopping-cart fa-2x"></i>

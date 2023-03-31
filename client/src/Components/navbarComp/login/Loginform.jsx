@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./loginform.css";
 import { BASE_URI } from "../../../services/helper";
+import Button from "../../Button";
 
 const Loginform = () => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -31,7 +32,7 @@ const Loginform = () => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div className="login-wrap">
           <div className="login-html">
             <input
@@ -84,7 +85,38 @@ const Loginform = () => {
             </div>
           </div>
         </div>
-      </form>
+      </form> */}
+
+      <div className="Mastercontainer">
+        <div className="upContainer">
+          <form onSubmit={handleSubmit}>
+            <h2>SignIn</h2>
+            <input
+              id="email"
+              type="email"
+              className="input"
+              name="email"
+              value={user.email}
+              onChange={handleChange}
+              placeholder="Email"
+            />
+            <br />
+            <input
+              id="password"
+              type="password"
+              className="input"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+            <input type="checkbox" id="checkbox" />
+            <span>Remember password</span>
+
+            <Button type="submit">Login</Button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };

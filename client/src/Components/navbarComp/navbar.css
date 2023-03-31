@@ -111,7 +111,9 @@ ul{
     font-size: .8em;
     visibility: collapse;
 }
-
+.Signinbtn i {
+    margin-left: 5px;
+}
 @media screen and (max-width:700px) {
     .navbarmaster{
         display: block;
